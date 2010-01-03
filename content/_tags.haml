@@ -1,0 +1,13 @@
+---
+filter: 
+  - haml
+
+dirty:   true
+---
+
+%ul
+  -tags_hash.keys.sort.each do |tag|
+    %li
+      %a{:href=>"/tags/#{tag}"}= tag
+      ==(#{tags_hash[tag]})
+

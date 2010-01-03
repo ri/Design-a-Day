@@ -1,0 +1,49 @@
+---
+extension: html
+filter:    erb
+---
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title><%= @page.title %></title>
+   <meta name="author" content="<%= @page.author %>" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+ 	<link rel="alternate stylesheet" type="text/css" href="css/black.css" title="black" media="screen" /> 
+ 	<link rel="alternate stylesheet" type="text/css" href="css/white.css" title="white" media="screen" /> 
+   
+   <script type="text/javascript" src="scripts/jquery.min.js"></script> 
+ 	<script type="text/javascript" src="scripts/styleswitch.js"></script>
+</head>
+<body>
+
+<div id="container">
+
+   <div class="column span-20 prepend-2 append-2 first last" id="header">
+     <div class="css-block" id="black-switch">
+       <a rel="black" class="styleswitch">black</a>
+     </div>
+     <div class="css-block" id="white-switch">
+       <a rel="white" class="styleswitch">white</a>
+     </div>
+     <h1>design a day</h1>
+   </div>
+
+   <div class="column span-15 prepend-2 first">
+      <%= @content %>
+   </div>
+
+   <div class="column span-20 prepend-2 append-2 first last" id="footer">
+    Made by <a href="http://twitter.com/riblah">@riblah. Contact: <a href="mailto:ri@marshmalloo.com">ri@marshmalloo.com</a>. <a href="http://marshmalloo.com">marshmalloo.com</a>
+   </div>
+
+</div>
+</body>
+</html>

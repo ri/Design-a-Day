@@ -1,0 +1,23 @@
+---
+filter:  haml
+dirty:   true
+---
+
+-limit = @page.limit || :all
+-paginate = @page.paginate || true
+-per_page = @page.per_page || 10
+-tag_name = @page.tag
+
+-if(tag_name && !tag_name.nil?)
+  -articles = posts_with_tag(tag_name, limit)
+-else
+  -articles = posts(limit)
+
+-articles.delete(@page)
+
+-if paginate
+  -paginate(articles, per_page) do |page|
+    3
+-else
+  -articles.each do |page|
+    =render :partial => '/post', :locals => {:page => page}
