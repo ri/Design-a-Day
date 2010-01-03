@@ -1,0 +1,9 @@
+---
+title:      <%= title %>
+created_at: <%= Time.now.to_y %>
+day:        <%= day.to_i %>
+filter:
+  - haml
+---
+
+%img{:src => "/images/<%= day %>.png", :alt => "<%= title %>", :year => "<%= title %>"}

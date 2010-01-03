@@ -1,5 +1,10 @@
 require 'lib/tags.rb'
 include TagsHelper
+
+Rake.application.instance_eval do
+  @tasks.delete('create:tag')
+end
+
 namespace :tags do
   desc "auto generate all tags page"
   task :generate do
