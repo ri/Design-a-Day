@@ -1,0 +1,11 @@
+---
+filter:  haml
+dirty:   true
+---
+
+.post
+  %h3= post.title
+  %ul.tags
+    - post.tags.sort.each do |tag|
+      %li
+        %a{:href=>"/tags/#{tag}"}= tag

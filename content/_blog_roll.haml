@@ -1,0 +1,14 @@
+---
+filter:  haml
+dirty:   true
+---
+
+- if(@page.tag && !@page.tag.nil?)
+  - articles = posts_with_tag(@page.tag)
+- else
+  - articles = posts
+
+- articles.delete(@page)
+
+- paginate(articles, 10) do |page|
+  = render :partial => '/post', :locals => {:post => page}

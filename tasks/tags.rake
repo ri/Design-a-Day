@@ -6,15 +6,15 @@ namespace :tags do
     ::Webby.load_files
     tags_hash.keys.each do |tag|
       dir = Webby.site.tags_dir
-      page = File.join(dir, File.basename(tag))
-      page = Webby::Builder.create(page, :from => "#{Webby.site.template_dir}/tags/generate.erb",
+      page = File.join(dir, File.basename(tag)) + ".haml"
+      page = Webby::Builder.create(page, :from => "#{Webby.site.template_dir}/tag.erb",
                  :locals => {:tag => tag, :directory => dir})
     end
   end
   
   desc "remove all tags page"
   task :remove do
-    rm_r Webby.site.content_dir + "/" + Webby.site.tags_dir
+    rm_rf Webby.site.content_dir + "/" + Webby.site.tags_dir
   end
   
   desc "regenerate all tags page"

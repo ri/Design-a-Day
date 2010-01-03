@@ -1,17 +1,28 @@
 ---
-title:       Home P
+title:       Home Page
 created_at:  2008-08-02 14:06:40.000000 -06:00
 filter:
   - erb
-  - textile
 ---
-<% pages = @pages.find(:limit => :all,
-                        :sort_by => 'created_at').reverse
-    first = pages.shift %>
-<%= pages.size %>
- <h2 id="first"><a href="<%= first.url %>"><%= first.title %><%= first.created_at %></a></h2>
- <% pages.each do |page| %>
-   <h2><a href="<%= page.url %>"><%= page.title %></a></h2>
-   <%= render :partial => 'tags' %>
-   
- <% end %>
+<h1>Pages</h1>
+<% 
+  pages = @pages.find(:all, :sort_by => "title", :in_directory => "") 
+  pages.each do |page|
+%>
+  <h2><a href="<%= page.url %>"><%= page.title %></a></h2>
+<% end %>
+
+
+<h1>Posts</h1>
+<% 
+  pages = @pages.find(:all, :sort_by => "created_at", :in_directory => "posts")
+  pages.each do |page|
+%>
+  <h2><a href="<%= page.url %>"><%= page.title %></a></h2>
+<% end %>
+
+<h1>Tags</h1>
+<% all_tags.each do |tag| %>
+  <h2><a href="/tags/<%= tag %>.html"><%= tag %></a></h2>
+<% end %>
+  

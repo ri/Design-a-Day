@@ -4,25 +4,31 @@ module TagsHelper
 
   # find all blog posts
   def posts(limit=:all, find_options=nil, &block)
-    options = {
-                :recursive => true,
-                :blog_post => true,
-                :sort_by => "created_at",
-                :reverse => true}
+    options = {      
+        :recursive    => true,
+        :in_directory => 'posts',
+        :sort_by      => "created_at",
+        :reverse      => true
+    }
     options.merge!(find_options) if find_options
     ::Webby::Resources.pages.find(limit, options, &block)
   end
   
   def tags_hash
-    return @tags_hash if @tags_hash
-    @tags_hash = {}
-    posts.each do |post|
-      post.tags.each do |tag|
-        @tags_hash[tag] ||=0
-        @tags_hash[tag] += 1
-      end if post.tags
+    @tags_hash ||= begin
+      hash = {}
+      posts.each do |post|
+        post.tags.each do |tag|
+          hash[tag] = hash[tag].to_i + 1
+        end if post.tags
+      end
+      
+      hash
     end
-    @tags_hash
+  end
+  
+  def all_tags
+    posts.map {|post| post.tags}.flatten.uniq
   end
   
   def write_tags(page)
