@@ -1,14 +1,16 @@
 ---
-title:       Home Page
+title:       Design a Day
 created_at:  2008-08-02 14:06:40.000000 -06:00
 filter:
   - erb
 dirty: true
 ---
 
+<ul class ="tags">
 <% all_tags.each do |tag| %>
-  <a href="/tags/<%= tag %>.html"><%= tag %></a>
+  <li><a href="/tags/<%= tag %>.html"><%= tag %></a></li>
 <% end %>
+</ul>
 
 <% 
   pages = @pages.find(:all, :sort_by => "created_at", :reverse => true, :in_directory => "posts")

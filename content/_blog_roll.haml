@@ -3,6 +3,12 @@ filter:  haml
 dirty:   true
 ---
 
+%ul.tags
+  - all_tags.each do |tag|
+    %li
+      %a{:href => "/tags/#{tag}.html"} 
+        = tag
+
 - if(@page.tag && !@page.tag.nil?)
   - articles = posts_with_tag(@page.tag)
 - else

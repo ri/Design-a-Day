@@ -6,8 +6,8 @@ layout:    nil   # no layout
 color:
   border:      "#ddd"
   header:      "#111"
-  link:        "#125AA7"
-  link-hover:  "#000"
+  link:        "#000"
+  link-hover:  "#AAA"
   blockquote:  "#666"
   box-bg:      "#eee"
   highlight:   "#B2CCFF"
@@ -16,10 +16,8 @@ color:
 ---
 
 body {
-  font-family: Verdana, "Bitstream Vera Sans", sans-serif;
   background-color: #fff;
   color: #000;
-  
 }
 
 #container {
@@ -41,7 +39,6 @@ body {
   clear: both;
 }
 .css-block {
-  margin-top: 80px;
   float: right;
   height: 20px;
   width: 20px;
@@ -49,7 +46,7 @@ body {
 
 .css-block a{
   height: 20px;
-  width:20px;
+  width:  20px;
   display:block;
 }
 /* Headings

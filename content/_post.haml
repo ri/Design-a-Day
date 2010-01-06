@@ -4,10 +4,11 @@ dirty:   true
 ---
 
 .post
-  %h3{:id => "day-#{post.day}"}
-    == Day ##{post.day}:
-    = post.title
-  - if (show_tags rescue false)
-    %span= write_tags(post)
-  = render post
+  %a{:name => "#{post.day}"}
+    %h3{:id => "day-#{post.day}"}
+      == ##{post.day}:
+      = post.title
+    - if (show_tags rescue false)
+      %span= write_tags(post)
+    = render post
   

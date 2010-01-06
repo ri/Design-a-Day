@@ -21,6 +21,15 @@ filter:    erb
    
    <script type="text/javascript" src="/scripts/jquery.min.js"></script> 
  	<script type="text/javascript" src="/scripts/styleswitch.js"></script>
+  <script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+  try {
+  var pageTracker = _gat._getTracker("UA-12331156-1");
+  pageTracker._trackPageview();
+  } catch(err) {}</script>
 </head>
 <body>
 
@@ -33,7 +42,7 @@ filter:    erb
      <div class="css-block" id="white-switch">
        <a rel="white" class="styleswitch">white</a>
      </div>
-     <h1>design a day</h1>
+     <a href="/"><h1>design a day</h1></a>
    </div>
 
    <div class="column span-15 prepend-2 first">
