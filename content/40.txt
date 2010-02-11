@@ -1,0 +1,8 @@
+---
+created_at: 2010-02-09 22:33:17.105154 +10:00
+filter:
+  - html
+---
+
+<script src="scripts/processing-0.4.js"></script>
+<canvas datasrc="spiral.pjs" width="200" height="200"></canvas>
