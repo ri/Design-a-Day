@@ -5,17 +5,14 @@ filter:
   - erb
 dirty: true
 ---
-
 <ul class ="tags">
 <% all_tags.each do |tag| %>
   <li><a href="/tags/<%= tag %>.html"><%= tag %></a></li>
 <% end %>
 </ul>
-
 <% 
   pages = @pages.find(:all, :sort_by => "created_at", :reverse => true, :in_directory => "posts")
   pages.each do |page|
 %>
   <%= render :partial => '/post', :locals => {:post => page} %>
 <% end %>
-  
