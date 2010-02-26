@@ -16,5 +16,5 @@ dirty:   true
 
 - articles.delete(@page)
 
-- paginate(articles, 10) do |page|
+- articles.each do |page|
   = render :partial => '/post', :locals => {:post => page}

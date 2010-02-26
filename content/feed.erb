@@ -26,10 +26,10 @@ filter:    erb
                  :reverse => true).each do |article| %>
     <entry>
       <title>Day #<%= article.day %>: <%= h(article.title) %></title>
-      <link href="<%= article.url %>" />
+      <link href="http://designaday.marshmalloo.com/#<%= article.day %>" />
       <id>tag:<%= @page.site %>,<%= article.created_at.strftime('%Y-%m-%d') %>:<%= article.created_at.to_i %></id>
       <updated><%= article.created_at.xmlschema %></updated>
-      <content type="html"><%= h(render(article)) %></content>
+      <content type="html"><%= rss_render(article) %></content>
     </entry>
   <% end %>
 </feed>

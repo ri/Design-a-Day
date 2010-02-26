@@ -1,5 +1,10 @@
 task :default => :build
 
+SITE.user = 'riblah'
+SITE.host = 'designaday.marshmalloo.com'
+SITE.remote_dir = '/home/riblah/designaday.marshmalloo.com/'
+SITE.rsync_args = ["-avuP"]
+
 desc 'deploy the site to the webserver'
 task :deploy => [:build, 'deploy:rsync']
 
